@@ -11,7 +11,7 @@ defmodule KeilaWeb.ApiDocsController do
       <!doctype html>
       <html>
         <head>
-          <title>Keila API</title>
+          <title>Pigeon API</title>
           <meta charset="utf-8" />
         </head>
         <body>

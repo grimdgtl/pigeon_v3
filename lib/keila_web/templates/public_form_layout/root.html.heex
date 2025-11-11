@@ -13,8 +13,9 @@
         view_template(@conn),
         :title,
         gettext("Open Source Newsletter Tool")
-      ) <> " · Keila" %>
+      ) <> " · Pigeon" %>
     </title>
+    <link rel="icon" type="image/png" href={Routes.static_path(@conn, "/images/pigeon-favicon.png")} />
     <meta property="og:image" content={Routes.static_url(@conn, "/images/og_image.png")} />
     <meta property="og:description" content="Open Source Newsletters" />
     <meta name="twitter:card" content="summary" />

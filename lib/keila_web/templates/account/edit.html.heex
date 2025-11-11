@@ -13,7 +13,7 @@
                 <%= render_icon(:check) %>
               </span>
               <%= gettext(
-                "You currently have an active subscription. Thanks for supporting Keila!"
+                "You currently have an active subscription. Thanks for supporting Pigeon!"
               ) %>
             </p>
           <% :paused -> %>
@@ -22,7 +22,7 @@
                 <%= render_icon(:information_circle) %>
               </span>
               <%= gettext(
-                "Your subscription is currently suspended. Please update your payment method to continue using Keila."
+                "Your subscription is currently suspended. Please update your payment method to continue using Pigeon."
               ) %>
             </p>
           <% :past_due -> %>
@@ -31,7 +31,7 @@
                 <%= render_icon(:information_circle) %>
               </span>
               <%= gettext(
-                "There was an error processing your payment. Please update your payment method to continue using Keila."
+                "There was an error processing your payment. Please update your payment method to continue using Pigeon."
               ) %>
             </p>
           <% :deleted -> %>
@@ -188,7 +188,7 @@
       <%= gettext("Change Password") %>
     </h2>
     <p class="text-lg text-gray-200">
-      <%= gettext("Here you can update your Keila password.") %>
+      <%= gettext("Here you can update your Pigeon password.") %>
     </p>
     <div class="flex flex-col">
       <%= label(f, :email, gettext("Email")) %>
@@ -223,7 +223,7 @@
       <%= gettext("Change Language") %>
     </h2>
     <p class="text-lg text-gray-200">
-      <%= gettext("Here you can change the language for the Keila interface.") %>
+      <%= gettext("Here you can change the language for the Pigeon interface.") %>
     </p>
     <div class="flex flex-col">
       <%= label(f, :locale, gettext("Language")) %>

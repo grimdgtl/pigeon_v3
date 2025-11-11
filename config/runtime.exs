@@ -20,6 +20,17 @@ put_if_not_empty = fn
   enumerable, _, _ -> enumerable
 end
 
+# >>> DODATO: :dev blok za Docker lokalni rad (koristi DATABASE_URL ili default na db:5432)
+if config_env() == :dev do
+  db_url = System.get_env("DATABASE_URL") || "ecto://postgres:postgres@db:5432/keila_dev"
+
+  config :keila, Keila.Repo,
+    url: db_url,
+    show_sensitive_data_on_connection_error: true,
+    pool_size: 10
+end
+# <<< KRAJ DODATKA
+
 if config_env() == :prod do
   # Database
   try do
@@ -213,7 +224,7 @@ if config_env() == :prod do
         :crypto.hash(:sha256, SECRET_KEY_BASE <> "hashid_salt") |> Base.url_encode64()
         """)
 
-        :crypto.hash(:sha256, secret_key_base <> "hashid_salt") |> Base.url_encode64()
+        :crypto.hash(:sha256, secret_key_base <> "hashid_salt") |> Base.encode64()
 
       salt ->
         salt

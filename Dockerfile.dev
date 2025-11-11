@@ -1,0 +1,21 @@
+FROM hexpm/elixir:1.16.2-erlang-26.2.5-debian-bookworm-20240423
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  build-essential git curl ca-certificates inotify-tools \
+  postgresql-client nodejs npm \
+  cmake pkg-config erlang-dev \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN mix local.hex --force && mix local.rebar --force
+WORKDIR /app
+
+# cache deps
+COPY mix.exs mix.lock ./
+COPY config/ config/
+RUN mix deps.get
+
+# copy app
+COPY . .
+
+EXPOSE 4000
+CMD ["sh","-lc","mix ecto.create && mix ecto.migrate && mix phx.server"]

@@ -15,14 +15,14 @@ defmodule Keila.Auth.Emails do
   @spec build(:activate, %{url: String.t(), user: Keila.Auth.User.t()}) :: term() | no_return()
   def build(:activate, %{user: user, url: url}) do
     new()
-    |> from({"Keila", system_from_email()})
+    |> from({"Pigeon", system_from_email()})
     |> subject(dgettext("auth", "Please Verify Your Account"))
     |> to(user.email)
     |> text_body(
       dgettext(
         "auth",
         """
-        Welcome to Keila,
+        Welcome to Pigeon,
 
         please confirm your new account by visiting the following link:
 
@@ -39,7 +39,7 @@ defmodule Keila.Auth.Emails do
           term() | no_return()
   def build(:update_email, %{user: user, url: url}) do
     new()
-    |> from({"Keila", system_from_email()})
+    |> from({"Pigeon", system_from_email()})
     |> subject(dgettext("auth", "Please Verify Your Email"))
     |> to(user.email)
     |> text_body(
@@ -65,14 +65,14 @@ defmodule Keila.Auth.Emails do
     new()
     |> subject(dgettext("auth", "Your Account Reset Link"))
     |> to(user.email)
-    |> from({"Keila", system_from_email()})
+    |> from({"Pigeon", system_from_email()})
     |> text_body(
       dgettext(
         "auth",
         """
         Hey there,
 
-        you have requested a password reset for your Keila account.
+        you have requested a password reset for your Pigeon account.
 
         You can set a new password by visiting the following link:
 
@@ -90,14 +90,14 @@ defmodule Keila.Auth.Emails do
     new()
     |> subject(dgettext("auth", "Your Login Link"))
     |> to(user.email)
-    |> from({"Keila", system_from_email()})
+    |> from({"Pigeon", system_from_email()})
     |> text_body(
       dgettext(
         "auth",
         """
         Hey there,
 
-        you can login to Keila with the following link:
+        you can login to Pigeon with the following link:
 
         %{url}
 

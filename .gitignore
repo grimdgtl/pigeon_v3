@@ -51,3 +51,4 @@ ops/dkim
 *.iml
 
 worktrees/*
+.env.dev
